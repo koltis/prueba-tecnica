@@ -5,11 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const connection_1 = __importDefault(require("./connection"));
+//La función "seed" se ejecuta con el comando "npm run seed", crea las tablas,
+//el usuario predeterminado para la autenticación de la aplicación y 3 productos.
 async function seed() {
     try {
         const db = await (0, connection_1.default)();
-        //await db.query("DROP TABLE Productos;");
-        //await db.query("DROP TABLE User;");
         const createProductsTable = await db.query(`
       CREATE TABLE Productos (
         ID INT AUTO_INCREMENT PRIMARY KEY,
